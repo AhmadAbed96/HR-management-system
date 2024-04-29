@@ -47,6 +47,8 @@ let emp5 = new EmployeeData("Omar Zaid",'Development',"Senior","./assets/Omar.jp
 let emp6 = new EmployeeData("Rana Saleh",'Development',"Junior","./assets/Rana.jpg")
 let emp7 = new EmployeeData("Hadi Ahmad",'Finance',"Mid-Senior","./assets/Hadi.jpg")
 
+
+
 function createCard(employee) {
     let card = document.createElement("div");
     card.classList.add("card");
@@ -67,7 +69,11 @@ function addCard(employee) {
     fieldset.appendChild(card)
 }
 
+
+
 function renderData() {
+    let data = localStorage.getItem(localStorageKey);
+    employees = JSON.parse(data);
 
     
     let departments = ["Administration", "Development", "Finance", "Marketing"];
@@ -99,6 +105,8 @@ function renderData() {
 }
 
 
+
+
 let myForm = document.forms[0];
 
 myForm.addEventListener("submit", function (eve) {
@@ -108,10 +116,24 @@ myForm.addEventListener("submit", function (eve) {
     let imageUrl = eve.target.imgurl.value;
     let department = eve.target.Department.value;
     let level = eve.target.Level.value;
-    
     let newEmp = new EmployeeData(fullName, department, level,imageUrl);
+    
+    addEmployeesToLocalStorage()
     addCard(newEmp);
-    renderData();
+    // newEmp.renderData();
+    // renderData()
 });
 
+function addEmployeesToLocalStorage(){
+    localStorage.setItem(localStorageKey, JSON.stringify(employees));
+}
+
+function addHardCodedDataToLocalStorage() {
+    let dataOnLocalStorage = localStorage.getItem(localStorageKey);
+    if (dataOnLocalStorage == null) {
+        addEmployeesToLocalStorage();
+    }
+}
+
+addHardCodedDataToLocalStorage();
 renderData()

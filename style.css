@@ -102,3 +102,30 @@ fieldset {
     margin: 10px,25%;
     flex-wrap: wrap;
 }
+
+table {
+    margin: 10vh auto;
+    border-collapse: separate;
+}
+
+thead {
+    background-color: #9AC8CD;
+}
+
+th,
+td {
+    font-weight: bold;
+    border: 3px solid;
+    text-align: center;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+tfoot {
+    background-color: #3f4345cc;
+}
+
+thead,
+tfoot {
+    font-size: 20px;
+}
