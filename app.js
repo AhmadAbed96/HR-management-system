@@ -1,6 +1,7 @@
 "use strict";
 let employees = [];
 let section = document.getElementById("cardsection")
+let localStorageKey = "data"
 console.log(section)
 function EmployeeData(fullName,department,level,url){
     this.id = this.calculateId(),
@@ -38,7 +39,6 @@ EmployeeData.prototype.calcSalary = function(){
 
     }
   }
-
 let emp1 = new EmployeeData("Ghazi Samer","Administration","Senior","./assets/Ghazi.jpg")
 let emp2 = new EmployeeData("Lana Ali",'Finance',"Senior","./assets/Lana.jpg")
 let emp3 = new EmployeeData("Tamara Ayoub",'Marketing',"Senior","./assets/Tamara.jpg")
@@ -46,7 +46,6 @@ let emp4 = new EmployeeData("Safi Walid",'Administration',"Mid-Senior","./assets
 let emp5 = new EmployeeData("Omar Zaid",'Development',"Senior","./assets/Omar.jpg")
 let emp6 = new EmployeeData("Rana Saleh",'Development',"Junior","./assets/Rana.jpg")
 let emp7 = new EmployeeData("Hadi Ahmad",'Finance',"Mid-Senior","./assets/Hadi.jpg")
-
 
 
 function createCard(employee) {
@@ -120,8 +119,6 @@ myForm.addEventListener("submit", function (eve) {
     
     addEmployeesToLocalStorage()
     addCard(newEmp);
-    // newEmp.renderData();
-    // renderData()
 });
 
 function addEmployeesToLocalStorage(){
