@@ -1,6 +1,7 @@
 "use strict";
 let employees = [];
 let section = document.getElementById("cardsection")
+let localStorageKey = "data"
 console.log(section)
 function EmployeeData(fullName,department,level,url){
     this.id = this.calculateId(),
